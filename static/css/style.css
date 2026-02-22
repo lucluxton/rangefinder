@@ -8,6 +8,10 @@
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
 
+a { color: var(--leica-red); }
+a:visited { color: var(--leica-red); }
+a:hover { color: #FF4A4F; }
+
 body {
   font-family: 'Inter', sans-serif;
   background-color: var(--bg-dark);
