@@ -113,6 +113,25 @@ nav a {
   padding-bottom: 0.5rem;
 }
 
+/* --- View All Link --- */
+.view-all {
+  max-width: 1400px;
+  margin: -4rem auto 6rem;
+  padding: 0 5%;
+  text-align: right;
+}
+
+.view-all-link {
+  font-family: 'Roboto Mono', monospace;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: color 0.2s ease;
+}
+
+.view-all-link:hover { color: var(--leica-red); }
+
 /* --- Gallery Grid --- */
 .gallery-grid {
   display: grid;

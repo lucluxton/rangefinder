@@ -8,7 +8,7 @@
 </section>
 
 <section class="gallery-grid">
-  {{ range where .Site.RegularPages "Section" "posts" }}
+  {{ range first 3 (where .Site.RegularPages "Section" "posts") }}
   <a href="{{ .RelPermalink }}" class="photo-entry">
     <div class="img-container">
       {{ with .Params.cover_image }}
@@ -31,5 +31,9 @@
   </a>
   {{ end }}
 </section>
+
+<div class="view-all">
+  <a href="/posts/" class="view-all-link">View all entries &rarr;</a>
+</div>
 
 {{ end }}

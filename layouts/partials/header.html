@@ -6,7 +6,7 @@
     Rangefinder
   </a>
   <nav>
-    <a href="/" {{ if .IsHome }}class="active"{{ end }}>Journal</a>
+    <a href="/posts/" {{ if eq .Section "posts" }}class="active"{{ end }}>Journal</a>
     <a href="/portfolios/">Portfolios</a>
     <a href="/about/">About</a>
   </nav>
