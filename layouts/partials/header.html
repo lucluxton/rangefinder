@@ -7,7 +7,7 @@
   </a>
   <nav>
     <a href="/posts/" {{ if eq .Section "posts" }}class="active"{{ end }}>Journal</a>
-    <a href="/portfolios/">Portfolios</a>
-    <a href="/about/">About</a>
+    <a href="/portfolios/" {{ if eq .Section "portfolios" }}class="active"{{ end }}>Portfolios</a>
+    <a href="/about/" {{ if eq .Title "About" }}class="active"{{ end }}>About</a>
   </nav>
 </header>

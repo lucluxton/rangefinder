@@ -1,0 +1,60 @@
+{{ define "main" }}
+
+<div class="post-header">
+  <a href="/portfolios/" class="back-link">&larr; Back to Portfolios</a>
+  <h1>{{ .Title }}</h1>
+  <div class="post-meta">
+    {{ .Date.Format "January 2, 2006" }}
+  </div>
+</div>
+
+{{ with .Params.cover_image }}
+<div class="post-hero-image">
+  <img src="{{ . }}" alt="{{ $.Title }}" id="heroImage" style="cursor: pointer;" onclick="openLightbox(this.src)">
+</div>
+{{ end }}
+
+<div class="post-content">
+  {{ .Content }}
+</div>
+
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox">
+  <button class="close-lightbox" onclick="closeLightbox()">Close [X]</button>
+  <img src="" alt="" id="lightboxImg">
+</div>
+
+{{ end }}
+
+{{ define "scripts" }}
+<script>
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightboxImg');
+
+  function openLightbox(src) {
+    lightboxImg.src = src;
+    lightbox.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeLightbox() {
+    lightbox.classList.remove('active');
+    document.body.style.overflow = 'auto';
+    setTimeout(() => { lightboxImg.src = ''; }, 300);
+  }
+
+  lightbox.addEventListener('click', (e) => {
+    if (e.target === lightbox) closeLightbox();
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && lightbox.classList.contains('active')) closeLightbox();
+  });
+
+  // Make all images in post content clickable for lightbox
+  document.querySelectorAll('.post-content img').forEach(img => {
+    img.style.cursor = 'pointer';
+    img.addEventListener('click', () => openLightbox(img.src));
+  });
+</script>
+{{ end }}

@@ -5,9 +5,9 @@ excerpt: The marginal cost of content creation is now zero
 cover_image: https://images.unsplash.com/photo-1517003627204-862f290f24c0?q=80&w=3264&auto=format&fit=crop
 draft: true
 exif:
-  focal_length: 35mm
-  aperture: f/2.0
-  shutter_speed: 1/250s
+  focal_length: 24mm
+  aperture: f/8.0
+  shutter_speed: 1/200s
 ---
 # The Attention Deficit That AI Created
 

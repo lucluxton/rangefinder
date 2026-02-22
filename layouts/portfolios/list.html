@@ -1,0 +1,25 @@
+{{ define "main" }}
+
+<div class="post-header">
+  <h1>{{ .Title }}</h1>
+</div>
+
+<section class="gallery-grid">
+  {{ range .Pages }}
+  <a href="{{ .RelPermalink }}" class="photo-entry">
+    <div class="img-container">
+      {{ with .Params.cover_image }}
+      <img src="{{ . }}" alt="{{ $.Title }}" loading="lazy">
+      {{ end }}
+    </div>
+    <div class="entry-details">
+      <div>
+        <h2 class="entry-title">{{ .Title }}</h2>
+        <p class="entry-excerpt">{{ .Params.excerpt }}</p>
+      </div>
+    </div>
+  </a>
+  {{ end }}
+</section>
+
+{{ end }}
