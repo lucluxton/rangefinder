@@ -1,0 +1,35 @@
+{{ define "main" }}
+
+<section class="hero">
+  <h1>{{ .Site.Params.description }}</h1>
+  <div class="hero-meta">
+    {{ .Site.Params.tagline }}
+  </div>
+</section>
+
+<section class="gallery-grid">
+  {{ range where .Site.RegularPages "Section" "posts" }}
+  <a href="{{ .RelPermalink }}" class="photo-entry">
+    <div class="img-container">
+      {{ with .Params.cover_image }}
+      <img src="{{ . }}" alt="{{ $.Title }}" loading="lazy">
+      {{ end }}
+    </div>
+    <div class="entry-details">
+      <div>
+        <h2 class="entry-title">{{ .Title }}</h2>
+        <p class="entry-excerpt">{{ .Params.excerpt }}</p>
+      </div>
+      {{ with .Params.exif }}
+      <div class="technical-data">
+        <span class="focal-length">{{ .focal_length }}</span>
+        <span>{{ .aperture }}</span>
+        <span>{{ .shutter_speed }}</span>
+      </div>
+      {{ end }}
+    </div>
+  </a>
+  {{ end }}
+</section>
+
+{{ end }}

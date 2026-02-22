@@ -1,0 +1,339 @@
+:root {
+  --bg-dark: #0F0F0F;
+  --text-main: #F5F5F5;
+  --text-muted: #888888;
+  --leica-red: #ED1C24;
+  --border-color: #2A2A2A;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: var(--bg-dark);
+  color: var(--text-main);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+.top-strip {
+  height: 4px;
+  background-color: var(--leica-red);
+  width: 100%;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2.5rem 5%;
+  max-width: 1400px;
+  margin: 0 auto;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: 'Roboto Mono', monospace;
+  font-size: 1.2rem;
+  font-weight: 500;
+  text-decoration: none;
+  color: var(--text-main);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.red-dot {
+  width: 14px;
+  height: 14px;
+  background-color: var(--leica-red);
+  border-radius: 50%;
+  display: inline-block;
+}
+
+nav a {
+  font-family: 'Roboto Mono', monospace;
+  text-decoration: none;
+  color: var(--text-muted);
+  margin-left: 2.5rem;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: color 0.2s ease;
+}
+
+nav a:hover { color: var(--text-main); }
+nav a.active { color: var(--text-main); }
+
+/* --- Hero --- */
+.hero {
+  max-width: 1400px;
+  margin: 5rem auto;
+  padding: 0 5%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  align-items: end;
+}
+
+.hero h1 {
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  line-height: 1.2;
+  font-weight: 300;
+  letter-spacing: -1px;
+}
+
+.hero-meta {
+  font-family: 'Roboto Mono', monospace;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  text-align: right;
+  padding-bottom: 0.5rem;
+}
+
+/* --- Gallery Grid --- */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 1px;
+  background-color: var(--border-color);
+  max-width: 1400px;
+  margin: 0 auto 6rem;
+  border: 1px solid var(--border-color);
+}
+
+.photo-entry {
+  background: var(--bg-dark);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  color: inherit;
+}
+
+.photo-entry .img-container {
+  width: 100%;
+  aspect-ratio: 3/2;
+  overflow: hidden;
+  position: relative;
+  background: #1A1A1A;
+}
+
+.photo-entry .img-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(100%) contrast(1.2);
+  transition: filter 0.5s ease;
+}
+
+.photo-entry:hover .img-container img {
+  filter: grayscale(0%) contrast(1);
+}
+
+.entry-details {
+  padding: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.entry-title {
+  font-size: 1.1rem;
+  font-weight: 400;
+  margin-bottom: 0.5rem;
+}
+
+.entry-excerpt {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  max-width: 80%;
+}
+
+.technical-data {
+  font-family: 'Roboto Mono', monospace;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  text-align: right;
+  white-space: nowrap;
+}
+
+.technical-data span { display: block; }
+.technical-data .focal-length { color: var(--leica-red); }
+
+/* --- Single Post --- */
+.post-header {
+  max-width: 900px;
+  margin: 5rem auto 3rem;
+  padding: 0 5%;
+}
+
+.post-header h1 {
+  font-size: clamp(1.8rem, 3.5vw, 3rem);
+  font-weight: 300;
+  letter-spacing: -1px;
+  margin-bottom: 1rem;
+}
+
+.post-meta {
+  font-family: 'Roboto Mono', monospace;
+  color: var(--text-muted);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.post-hero-image {
+  max-width: 1200px;
+  margin: 0 auto 3rem;
+  padding: 0 5%;
+}
+
+.post-hero-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.post-content {
+  max-width: 700px;
+  margin: 0 auto 6rem;
+  padding: 0 5%;
+  font-size: 1.05rem;
+  line-height: 1.8;
+}
+
+.post-content p {
+  margin-bottom: 1.5rem;
+}
+
+.post-content img {
+  width: 100%;
+  height: auto;
+  margin: 2rem 0;
+}
+
+.post-content blockquote {
+  border-left: 3px solid var(--leica-red);
+  padding-left: 1.5rem;
+  margin: 2rem 0;
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+.back-link {
+  display: inline-block;
+  font-family: 'Roboto Mono', monospace;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 2rem;
+  transition: color 0.2s ease;
+}
+
+.back-link:hover { color: var(--leica-red); }
+
+/* --- Lightbox --- */
+.lightbox {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(15, 15, 15, 0.95);
+  backdrop-filter: blur(10px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.lightbox.active {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.lightbox img {
+  max-width: 90vw;
+  max-height: 90vh;
+  object-fit: contain;
+  box-shadow: 0 0 50px rgba(0,0,0,0.5);
+  transform: scale(0.95);
+  transition: transform 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.lightbox.active img {
+  transform: scale(1);
+}
+
+.close-lightbox {
+  position: absolute;
+  top: 2rem;
+  right: 3rem;
+  color: var(--text-muted);
+  font-family: 'Roboto Mono', monospace;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  transition: color 0.2s ease;
+}
+
+.close-lightbox:hover { color: var(--leica-red); }
+
+/* --- Footer --- */
+footer {
+  text-align: center;
+  padding: 3rem;
+  color: var(--text-muted);
+  font-family: 'Roboto Mono', monospace;
+  font-size: 0.8rem;
+  border-top: 1px solid var(--border-color);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+/* --- Responsive --- */
+@media (max-width: 768px) {
+  .hero {
+    grid-template-columns: 1fr;
+    margin: 3rem auto;
+  }
+
+  .hero-meta {
+    text-align: left;
+  }
+
+  .gallery-grid {
+    grid-template-columns: 1fr;
+  }
+
+  header {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  nav a {
+    margin-left: 0;
+    margin-right: 1.5rem;
+  }
+
+  .entry-details {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .technical-data {
+    text-align: left;
+  }
+}

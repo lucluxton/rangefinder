@@ -1,0 +1,18 @@
+baseURL = "https://example.com/"
+languageCode = "en-us"
+title = "Rangefinder | Photography & Words"
+
+[params]
+  description = "Documenting the quiet moments. Light, shadow, and observation."
+  tagline = "EST. 2026 // ISO 400"
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+
+[outputs]
+  home = ["HTML"]
+
+[pagination]
+  pagerSize = 12
