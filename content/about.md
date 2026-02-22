@@ -16,16 +16,17 @@ Photo sets, single images, and small visual essays—mostly street, travel, fami
 ### Writing
 
 Posts on:
-
 - Tech and products
 - Business, sales, and leadership
 - AI (what’s useful, what’s changing, what’s noise)
 - Anything else worth capturing while it’s still fresh
+
 ## Gear
 
 - Leica Q2 (28mm f/1.7 Summilux)
 - Leica M10 with 50mm f/1.4 Summilux-M
 - Canon R5 with RF 24–70mm f/2.8
+
 
 ## Why this exists
   
