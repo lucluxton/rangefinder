@@ -8,9 +8,26 @@
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
 
-a { color: var(--leica-red); }
-a:visited { color: var(--leica-red); }
-a:hover { color: #FF4A4F; }
+a { color: inherit; text-decoration: none; }
+a:visited { color: inherit; }
+
+/* Links in post/page body content are red */
+.post-content a { color: var(--leica-red); text-decoration: underline; }
+.post-content a:visited { color: var(--leica-red); }
+.post-content a:hover { color: #FF4A4F; }
+
+/* Logo: white, red on hover */
+.logo, .logo:visited { color: var(--text-main); }
+.logo:hover { color: var(--leica-red); }
+
+/* Nav links: grey, red on hover */
+nav a, nav a:visited { color: var(--text-muted); }
+nav a:hover { color: var(--leica-red); }
+nav a.active { color: var(--text-main); }
+
+/* Gallery entry titles: white, red on hover */
+.photo-entry, .photo-entry:visited { color: var(--text-main); }
+.photo-entry:hover .entry-title { color: var(--leica-red); }
 
 body {
   font-family: 'Inter', sans-serif;
@@ -68,8 +85,7 @@ nav a {
   transition: color 0.2s ease;
 }
 
-nav a:hover { color: var(--text-main); }
-nav a.active { color: var(--text-main); }
+/* nav hover/active handled above */
 
 /* --- Hero --- */
 .hero {
