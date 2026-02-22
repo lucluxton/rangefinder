@@ -21,6 +21,7 @@ Posts on:
 - AI (what’s useful, what’s changing, what’s noise)
 - Anything else worth capturing while it’s still fresh
 
+
 ## Gear
 
 - Leica Q2 (28mm f/1.7 Summilux)
