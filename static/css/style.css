@@ -220,6 +220,31 @@ nav a.active { color: var(--text-main); }
   margin: 2rem 0;
 }
 
+.post-content h2 {
+  font-size: 1.4rem;
+  font-weight: 400;
+  margin-top: 3rem;
+  margin-bottom: 1rem;
+}
+
+.post-content h3 {
+  font-size: 1.15rem;
+  font-weight: 400;
+  color: var(--text-muted);
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+}
+
+.post-content ul,
+.post-content ol {
+  padding-left: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.post-content li {
+  margin-bottom: 0.5rem;
+}
+
 .post-content blockquote {
   border-left: 3px solid var(--leica-red);
   padding-left: 1.5rem;
