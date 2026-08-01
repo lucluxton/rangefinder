@@ -8,8 +8,20 @@
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
 
+html { scroll-behavior: smooth; }
+
+::selection {
+  background: var(--leica-red);
+  color: #fff;
+}
+
 a { color: inherit; text-decoration: none; }
 a:visited { color: inherit; }
+
+:focus-visible {
+  outline: 2px solid var(--leica-red);
+  outline-offset: 3px;
+}
 
 /* Links in post/page body content are red */
 .post-content a { color: var(--leica-red); text-decoration: underline; }
@@ -43,14 +55,23 @@ body {
   width: 100%;
 }
 
-header {
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background-color: rgba(15, 15, 15, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.header-inner {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 2.5rem 5%;
+  padding: 1.5rem 5%;
   max-width: 1400px;
   margin: 0 auto;
-  border-bottom: 1px solid var(--border-color);
 }
 
 .logo {
@@ -72,6 +93,27 @@ header {
   background-color: var(--leica-red);
   border-radius: 50%;
   display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+.logo:hover .red-dot {
+  transform: scale(1.2);
+}
+
+/* Page content fade-in */
+main {
+  animation: fadeUp 0.5s ease both;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  main { animation: none; }
+  * { transition-duration: 0.01ms !important; }
 }
 
 nav a {
@@ -132,6 +174,9 @@ nav a {
 
 .view-all-link:hover { color: var(--leica-red); }
 
+.not-found { min-height: 40vh; }
+.not-found-link { margin: 0 auto 8rem; text-align: left; }
+
 /* --- Gallery Grid --- */
 .gallery-grid {
   display: grid;
@@ -166,11 +211,12 @@ nav a {
   height: 100%;
   object-fit: cover;
   filter: grayscale(100%) contrast(1.2);
-  transition: filter 0.5s ease;
+  transition: filter 0.5s ease, transform 0.7s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
 .photo-entry:hover .img-container img {
   filter: grayscale(0%) contrast(1);
+  transform: scale(1.03);
 }
 
 .entry-details {
@@ -184,6 +230,7 @@ nav a {
   font-size: 1.1rem;
   font-weight: 400;
   margin-bottom: 0.5rem;
+  transition: color 0.2s ease;
 }
 
 .entry-excerpt {
@@ -253,6 +300,24 @@ nav a {
   width: 100%;
   height: auto;
   margin: 2rem 0;
+}
+
+.post-content .content-figure {
+  margin: 2.5rem 0;
+}
+
+.post-content .content-figure img {
+  margin: 0;
+}
+
+.post-content figcaption {
+  font-family: 'Roboto Mono', monospace;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-top: 0.75rem;
+  text-align: center;
 }
 
 .post-content h2 {
@@ -358,7 +423,7 @@ nav a {
 /* --- Footer --- */
 footer {
   text-align: center;
-  padding: 3rem;
+  padding: 4rem 3rem;
   color: var(--text-muted);
   font-family: 'Roboto Mono', monospace;
   font-size: 0.8rem;
@@ -366,6 +431,30 @@ footer {
   letter-spacing: 1px;
   text-transform: uppercase;
 }
+
+.footer-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.footer-dot {
+  width: 10px;
+  height: 10px;
+}
+
+.footer-nav {
+  display: flex;
+  gap: 2rem;
+}
+
+.footer-nav a {
+  color: var(--text-muted);
+  transition: color 0.2s ease;
+}
+
+.footer-nav a:hover { color: var(--leica-red); }
 
 /* --- Responsive --- */
 @media (max-width: 768px) {
@@ -382,14 +471,19 @@ footer {
     grid-template-columns: 1fr;
   }
 
-  header {
+  .header-inner {
     flex-direction: column;
-    gap: 1.5rem;
+    gap: 1rem;
+    padding: 1.25rem 5%;
   }
 
-  nav a {
+  .site-header nav a {
     margin-left: 0;
     margin-right: 1.5rem;
+  }
+
+  .site-header nav a:last-child {
+    margin-right: 0;
   }
 
   .entry-details {
